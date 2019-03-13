@@ -7,8 +7,25 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    #app-wrapper{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .page-loader{
+      width: 500px;
+      height: 500px;
+    }
+  </style>
 </head>
 <body>
-  <app-root></app-root>
+  <div id="app-wrapper">
+      <app-root>
+        <img src="assets/gif/loader.gif" alt="loader" class="page-loader">
+      </app-root>
+  </div>
 </body>
 </html>
