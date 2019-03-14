@@ -1,0 +1,30 @@
+:host{
+  width: 100%;
+  position: fixed;
+  top:0;
+  left: 0;
+}
+header{
+  width: 100%;
+  padding: 25px 0;
+  .logo{
+    color: #333333;
+    font-size: 20px;
+  }
+  nav{
+    ul{
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+      text-transform: uppercase;
+      li{
+        &:not(:last-of-type){
+          margin-right: 20px;
+        }
+        a{
+          color: #333333;
+        }
+      }
+    }
+  }
+}
