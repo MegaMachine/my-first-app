@@ -1,1 +1,10 @@
-<h2>Server with ID {{ id }} is {{ getServerStatus() }}</h2>
+<div
+  class="server"
+  [ngClass]="{online: serverStatus === 'online',
+              offline: serverStatus === 'offline' }">
+  <h2>Server {{ item.name }} with ID {{ item.id }} is {{ getServerStatus() }}</h2>
+  <button
+    class="btn-danger"
+    (click)="deleteItem()">delete</button>
+</div>
+

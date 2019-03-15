@@ -1,3 +1,20 @@
-h2{
-  color:red;
+:host{
+  width: 100%;
+  .server{
+    width: 100%;
+    h2{
+      color: #333;
+    }
+    &.online{
+      h2{
+        color:green;
+      }
+    }
+    &.offline{
+      h2{
+        color:red;
+      }
+    }
+  }
 }
+
