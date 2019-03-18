@@ -1,0 +1,11 @@
+.row{
+  &:before,&:after{
+    display: none;
+  }
+}
+a{
+  color:#333333;
+}
+ul{
+  list-style: none;
+}
