@@ -1,17 +1,23 @@
 <div class="row">
   <div class="col-xs-12">
-
+    <button class="m-btn">New Recipe</button>
   </div>
 </div>
+<hr>
 <div class="row">
   <div class="col-xs-12">
-      <a href="#" class="recipe-item-info">
+      <a
+      href="#"
+      class="recipe-item-info"
+      *ngFor="let recipe of recipes">
         <div class="recipe-item-info-left">
-          <h4></h4>
-          <p></p>
+          <h4>{{ recipe.name }}</h4>
+          <p>{{ recipe.description }}</p>
         </div>
         <div class="recipe-item-info-right">
-          <img src="" alt="recipe-img">
+          <img
+            [src]="recipe.imagePath"
+            [alt]="recipe.name">
         </div>
       </a>
       <app-recipe-item></app-recipe-item>

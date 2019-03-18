@@ -1,0 +1,30 @@
+:host{
+  width: 100%;
+  .recipe-item-info{
+    display: flex;
+    padding: 15px;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: flex-start;
+    &-left{
+      h4,p{
+        color:#333;
+      }
+      h4{
+        font-size: 20px;
+      }
+      p{
+        font-size: 16px;
+      }
+    }
+    &-right{
+      img{
+        width: 100px;
+      }
+    }
+    &:hover{
+      background: #eee;
+    }
+  }
+}
