@@ -6,7 +6,11 @@
         <hr>
         <ul>
           <li>
-            <a href="#">Shopping item</a>
+            <a
+              class=""
+              style=""
+              *ngFor="let ingredient of ingredients"
+              href="#">{{ ingredient.name }} ({{ ingredient.amount}})</a>
           </li>
         </ul>
       </div>
