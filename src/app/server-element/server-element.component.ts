@@ -12,6 +12,7 @@ export class ServerElementComponent implements OnInit {
     name: string,
     content: string
   };
+
   constructor() {}
 
   ngOnInit() {}
