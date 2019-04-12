@@ -10,7 +10,10 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+  ContentChild
 } from '@angular/core';
 
 @Component({
@@ -36,7 +39,8 @@ export class ServerElementComponent implements
     content: string
   };
   @Input() name: string;
-
+  @ViewChild('heading') header: ElementRef;
+  @ContentChild('contentParagraph') paragraph: ElementRef;
   constructor() {
     let date = new Date();
     console.log('Constructor ->', date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds());
@@ -46,7 +50,8 @@ export class ServerElementComponent implements
   ngOnInit() {
     let date = new Date();
     console.log('OnInit ->', date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds());
-    // console.log('OnInit ->', date);
+    console.log('OnInit - ViewChield: ' + this.header.nativeElement.textContent);
+    console.log('OnInit - ContentChield: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -61,6 +66,8 @@ export class ServerElementComponent implements
   ngAfterContentInit() {
     let date = new Date();
     console.log('AfterContentInit ->', date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds());
+    console.log('AfterContentInit - ViewChield: ' + this.header.nativeElement.textContent);
+    console.log('AfterContentInit - ContentChield: ' + this.paragraph.nativeElement.textContent);
   }
   ngAfterContentChecked() {
     let date = new Date();
