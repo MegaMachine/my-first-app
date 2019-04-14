@@ -27,4 +27,32 @@ ul{
     background: #333333;
     color:#fff;
   }
+  &.red{
+    border-color:#ff4646;
+    color:#ff4646;
+    &:hover{
+      background: #ff4646;
+      color:#fff;
+    }
+  }
+  &.blue{
+    border-color:#2d81fe;
+    color:#2d81fe;
+    &:hover{
+      background: #2d81fe;
+      color:#fff;
+    }
+  }
+  &.green{
+    border-color:#41ac7a;
+    color:#41ac7a;
+    &:hover{
+      background: #41ac7a;
+      color:#fff;
+    }
+  }
+}
+
+.f-column{
+  flex-direction: column;
 }

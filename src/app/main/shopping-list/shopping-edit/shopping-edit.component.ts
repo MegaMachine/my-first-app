@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-edit.component.scss']
 })
 export class ShoppingEditComponent implements OnInit {
-
+  count = 0;
   constructor() { }
 
   ngOnInit() {
   }
-
+  testDeug(){
+    this.count++;
+  }
 }

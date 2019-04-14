@@ -1,3 +1,21 @@
-<p>
-  shopping-edit works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="row f-column">
+      <div class="col-xs-5 form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control">
+      </div>
+      <div class="col-xs-5 form-group">
+        <label for="amount">Name</label>
+        <input type="text" id="amount" class="form-control">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-5 d-flex justify-content-between">
+       <button (click)="testDeug()"class="m-btn green">Add</button>
+       <button class="m-btn red">Delete</button>
+       <button class="m-btn blue">Clear</button>
+      </div>
+    </div>
+  </div>
+</div>
