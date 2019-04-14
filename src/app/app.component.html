@@ -1,2 +1,2 @@
-<app-header></app-header>
-<app-main></app-main>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<app-main [loadedFeature]="loadedFeature"></app-main>

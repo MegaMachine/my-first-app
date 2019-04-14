@@ -10,6 +10,10 @@ import { RecipeDetailComponent } from './main/recipes/recipe-detail/recipe-detai
 import { RecipeItemComponent } from './main/recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './main/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './main/shopping-list/shopping-edit/shopping-edit.component';
+import {DropdownModule} from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -21,10 +25,13 @@ import { ShoppingEditComponent } from './main/shopping-list/shopping-edit/shoppi
     RecipeDetailComponent,
     RecipeItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    DropdownModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
