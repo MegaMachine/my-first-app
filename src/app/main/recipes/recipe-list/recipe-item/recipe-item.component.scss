@@ -1,0 +1,35 @@
+.recipe-item-info{
+  display: flex;
+  padding: 15px;
+  border: 1px solid #999999;
+  justify-content: space-between;
+  align-items: flex-start;
+  &-left{
+    h4,p{
+      color:#333;
+    }
+    h4{
+      font-size: 20px;
+    }
+    p{
+      font-size: 16px;
+    }
+  }
+  &-right{
+    img{
+      width: 100px;
+    }
+  }
+  &:hover{
+    background: #eee;
+  }
+  &:first-of-type{
+    border-radius: 5px 5px 0px 0px;
+  }
+  &:last-of-type{
+    border-radius: 0px 0px 5px 5px;
+  }
+  &:not(:first-of-type){
+    border-top: none;
+  }
+}

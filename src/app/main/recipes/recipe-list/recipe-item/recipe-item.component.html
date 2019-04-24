@@ -1,3 +1,13 @@
-<p>
-  recipe-item works!
-</p>
+<a
+href="#"
+class="recipe-item-info">
+  <div class="recipe-item-info-left">
+    <h4>{{ recipe.name }}</h4>
+    <p>{{ recipe.description }}</p>
+  </div>
+  <div class="recipe-item-info-right">
+    <img
+      [src]="recipe.imagePath"
+      [alt]="recipe.name">
+  </div>
+</a>
