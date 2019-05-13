@@ -1,5 +1,5 @@
+import { RecipeService } from './../recipe.service';
 import { Component, OnInit, Input } from '@angular/core';
-import {SelectItem} from 'primeng/api';
 import { Recipe } from '../recipe.model';
 @Component({
   selector: 'app-recipe-detail',
@@ -9,25 +9,12 @@ import { Recipe } from '../recipe.model';
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
   selectOption: string;
-  optionsGroup: SelectItem[];
-  constructor() {
-    this.optionsGroup = [
-      {
-        label: 'To Shopping List',
-        value: '1'
-      },
-      {
-        label: 'Edit Recipe',
-        value: '1'
-      },
-      {
-        label: 'To Shopping List',
-        value: '1'
-      }
-    ];
-  }
+  constructor( private recipeService: RecipeService) {}
 
   ngOnInit() {
-  }
 
+  }
+  onAddToShoppingList() {
+    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+  }
 }
