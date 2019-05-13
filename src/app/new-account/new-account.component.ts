@@ -5,7 +5,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.scss'],
-  providers: [LoggingService, AccountsService]
+  providers: [LoggingService]
 })
 export class NewAccountComponent {
 

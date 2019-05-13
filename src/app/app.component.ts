@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   accounts: { name: string, status: string }[] = [];
-  constructor( private accountsService: AccountsService){}
+  constructor( private accountsService: AccountsService) {}
 
   ngOnInit() {
     this.accounts = this.accountsService.getAccounts();
