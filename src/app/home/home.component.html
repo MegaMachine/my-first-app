@@ -2,3 +2,5 @@
 <p>Manage your Servers and Users.</p>
 <button class="btn btn-primary"
   (click)="onLoadServers(1)">Load Servers 1</button>
+<button class="btn btn-default" (click)="onLogin()" [ngClass]="{ green: loggedIn}">Login</button>
+<button class="btn btn-default" (click)="onLogout()" [ngClass]="{ red: !loggedIn}">Logout</button>

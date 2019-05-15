@@ -20,4 +20,7 @@ export class AuthService {
   logout() {
     this.loggedIn = false;
   }
+  getLoggedIn() {
+    return this.loggedIn;
+  }
 }

@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,12 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  loggedIn: boolean;
   constructor(
     private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
+    this.loggedIn = this.authService.getLoggedIn();
   }
 
   onLoadServers(id: number) {
@@ -24,5 +27,14 @@ export class HomeComponent implements OnInit {
         },
         fragment: 'loading'
       });
+  }
+  onLogin() {
+    this.authService.login();
+    this.loggedIn = this.authService.getLoggedIn();
+
+  }
+  onLogout() {
+    this.authService.logout();
+    this.loggedIn = this.authService.getLoggedIn();
   }
 }
