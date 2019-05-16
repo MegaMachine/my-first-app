@@ -1,3 +1,4 @@
+import { ServerResolverService } from './servers/server/server-resolver.service';
 import { CanDeactivatedGuard } from './servers/edit-server/can-deactivated-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -37,7 +38,7 @@ import { AuthService } from './auth.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ServersService, AuthService, AuthGuard, CanDeactivatedGuard],
+  providers: [ServersService, AuthService, AuthGuard, CanDeactivatedGuard, ServerResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
