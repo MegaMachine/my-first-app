@@ -22,10 +22,10 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a
             class="dropdown-item"
-            href="#"
+
             (click)="onAddToShoppingList()">To Shopping List</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" >Another action</a>
+          <a class="dropdown-item" >Something else here</a>
         </div>
       </div>
   </div>
@@ -40,7 +40,7 @@
     <ul>
       <li
         *ngFor="let ingredient of recipe.ingredients">
-        <a href="#">{{ ingredient.name }} ({{ ingredient.amount}})</a>
+        <a >{{ ingredient.name }} ({{ ingredient.amount}})</a>
       </li>
     </ul>
   </div>
