@@ -6,6 +6,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
+
 export class UserComponent implements OnInit {
   id: number;
 
