@@ -32,4 +32,7 @@
   &:not(:first-of-type){
     border-top: none;
   }
+  &.active-link{
+    background-color: rgb(0, 151, 106);
+  }
 }
