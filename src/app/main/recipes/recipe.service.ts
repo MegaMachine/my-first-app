@@ -1,5 +1,5 @@
 import { ShoppingListService } from './../shopping-list/shopping-list.service';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 
