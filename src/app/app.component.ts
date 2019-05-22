@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     this.singupForm = new FormGroup({
       'username': new FormControl( null ),
       'email': new FormControl( null ),
-      'gender': new FormControl( 'male' )
+      'gender': new FormControl( 'female' )
     });
   }
 }
