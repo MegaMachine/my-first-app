@@ -1,23 +1,23 @@
 <div class="row">
   <div class="col-xs-12">
-    <div class="row f-column">
-      <div class="col-xs-5 form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" class="form-control"
-          #nameInput>
+    <form (ngSubmit)="onAddItem(f)" #f="ngForm">
+      <div class="row f-column">
+        <div class="col-xs-5 form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" class="form-control" ngModel name="name">
+        </div>
+        <div class="col-xs-5 form-group">
+          <label for="amount">Amount</label>
+          <input type="text" id="amount" class="form-control" ngModel name="amount">
+        </div>
       </div>
-      <div class="col-xs-5 form-group">
-        <label for="amount">Amount</label>
-        <input type="text" id="amount" class="form-control"
-          #amountInput>
+      <div class="row">
+        <div class="col-xs-5 d-flex justify-content-between">
+            <button class="m-btn green" type="submit">Add</button>
+            <button class="m-btn red" type="button">Delete</button>
+            <button class="m-btn blue" type="button">Clear</button>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-5 d-flex justify-content-between">
-       <button (click)="onAddItem()"class="m-btn green">Add</button>
-       <button class="m-btn red">Delete</button>
-       <button class="m-btn blue">Clear</button>
-      </div>
-    </div>
+    </form>
   </div>
 </div>
