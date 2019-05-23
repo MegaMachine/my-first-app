@@ -2,7 +2,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ShoppingListService } from './main/shopping-list/shopping-list.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DropdownModule} from 'primeng/dropdown';
 
@@ -39,7 +39,8 @@ import { RecipeEditComponent } from './main/recipes/recipe-edit/recipe-edit.comp
     DropdownModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
