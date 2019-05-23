@@ -20,8 +20,15 @@
       </div>
       <div class="row">
         <div class="col-xs-5 d-flex justify-content-between">
-            <button class="m-btn green" type="submit" [disabled]="!f.valid"> {{ editMode ? 'Update' : 'Add' }} </button>
-            <button class="m-btn red" type="button">Delete</button>
+            <button
+              class="m-btn green"
+              type="submit"
+              [disabled]="!f.valid"> {{ editMode ? 'Update' : 'Add' }} </button>
+            <button
+              class="m-btn red"
+              type="button"
+              (click)="onDelete()"
+              [disabled]="!editMode">Delete</button>
             <button
               class="m-btn blue"
               type="button"
