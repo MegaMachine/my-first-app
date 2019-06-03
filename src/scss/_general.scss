@@ -1,6 +1,9 @@
 *{
   font-family: 'Roboto', sans-serif;
 }
+html{
+  font-size: 14px;
+}
 .row{
   &:before,&:after{
     display: none;
@@ -65,3 +68,4 @@ input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border:1px solid red;
 }
+
