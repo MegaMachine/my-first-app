@@ -5,11 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { FilterPipe } from './filter.pipe';
+import { UnicornPipe } from './unicorn.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShortenPipe
+    ShortenPipe,
+    FilterPipe,
+    UnicornPipe
   ],
   imports: [
     BrowserModule,
