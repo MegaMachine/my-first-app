@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { map } from 'rxjs/operators';
 @Injectable()
 export class ServerService {
   constructor(
@@ -22,6 +22,14 @@ export class ServerService {
     );
   }
   getServers() {
-    return this.http.get('https://learning-http-request.firebaseio.com/data.json',  { observe: 'response' });
+    return this.http.get('https://learning-http-request.firebaseio.com/data.json',  { observe: 'response' })
+      .pipe(
+        map(
+          (response) => {
+            const data = response.body;
+            return data;
+          }
+        )
+      )
   }
 }
