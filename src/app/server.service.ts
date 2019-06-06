@@ -16,4 +16,7 @@ export class ServerService {
       { headers: headers}
     );
   }
+  getServers() {
+    return this.http.get('https://learning-http-request.firebaseio.com/data.json',  { observe: 'response' });
+  }
 }
