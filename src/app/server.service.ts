@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 @Injectable()
 export class ServerService {
   constructor(
@@ -22,7 +23,7 @@ export class ServerService {
     );
   }
   getServers() {
-    return this.http.get('https://learning-http-request.firebaseio.com/data.json',  { observe: 'response' })
+    return this.http.get('https://learning-http-request.firebaseio.com/data',  { observe: 'response' })
       .pipe(
         map(
           (response) => {
@@ -31,6 +32,13 @@ export class ServerService {
               server.name = 'FETCHED_' + server.name;
             }
             return data;
+          }
+        )
+      )
+      .pipe(
+        catchError(
+          (error) => {
+            return throwError(error.message);
           }
         )
       )
