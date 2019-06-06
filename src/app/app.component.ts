@@ -8,7 +8,7 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-
+  appName = this.serverService.getAppName();
   servers = [
     {
       name: 'Testserver',
@@ -61,4 +61,5 @@ export class AppComponent implements OnInit{
   private generateId() {
     return Math.round(Math.random() * 10000);
   }
+
 }

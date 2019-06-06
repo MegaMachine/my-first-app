@@ -23,11 +23,11 @@ export class ServerService {
     );
   }
   getServers() {
-    return this.http.get('https://learning-http-request.firebaseio.com/data',  { observe: 'response' })
+    return this.http.get('https://learning-http-request.firebaseio.com/data.json')
       .pipe(
         map(
-          (response) => {
-            const data = response.body;
+          (response: any) => {
+            const data = response;
             for( const server of data) {
               server.name = 'FETCHED_' + server.name;
             }
@@ -41,6 +41,16 @@ export class ServerService {
             return throwError(error.message);
           }
         )
-      )
+      );
+  }
+  getAppName() {
+    return this.http.get('https://learning-http-request.firebaseio.com/appName.json')
+      .pipe(
+        map(
+          (response: Response) => {
+            return response;
+          }
+        )
+      );
   }
 }
