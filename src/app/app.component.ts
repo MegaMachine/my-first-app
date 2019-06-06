@@ -1,5 +1,5 @@
 import { ServerService } from './server.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 
 @Component({
@@ -7,7 +7,8 @@ import { HttpResponse } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
   servers = [
     {
       name: 'Testserver',
@@ -22,7 +23,18 @@ export class AppComponent {
   ];
   constructor(
     private serverService: ServerService
-  ) { }
+  ) {
+    // this.serverService.getServers()
+    // .subscribe(
+    //   (servers: any[]) => {
+    //     this.servers = servers;
+    //   },
+    //   (error) => console.log(error)
+    // );
+  }
+  ngOnInit() {
+
+  }
   onAddServer(name: string) {
     this.servers.push({
       name: name,
@@ -41,7 +53,7 @@ export class AppComponent {
     this.serverService.getServers()
       .subscribe(
         (servers: any[]) => {
-          const data = servers;
+          this.servers = servers;
         },
         (error) => console.log(error)
       );

@@ -27,6 +27,9 @@ export class ServerService {
         map(
           (response) => {
             const data = response.body;
+            for( const server of data) {
+              server.name = 'FETCHED_' + server.name;
+            }
             return data;
           }
         )
