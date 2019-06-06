@@ -10,7 +10,12 @@ export class ServerService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post(
+    // return this.http.post(
+    //   'https://learning-http-request.firebaseio.com/data.json',
+    //   servers,
+    //   { headers: headers}
+    // );
+    return this.http.put(
       'https://learning-http-request.firebaseio.com/data.json',
       servers,
       { headers: headers}
