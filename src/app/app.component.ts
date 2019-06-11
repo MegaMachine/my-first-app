@@ -1,3 +1,4 @@
+import { DishesService } from './dishes.service';
 import { ServerService } from './server.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
@@ -21,8 +22,12 @@ export class AppComponent implements OnInit{
       id: this.generateId()
     }
   ];
+  responseSuccess = true;
+  responseResults;
+  sendData = false;
   constructor(
-    private serverService: ServerService
+    private serverService: ServerService,
+    private dishesService: DishesService
   ) {
     // this.serverService.getServers()
     // .subscribe(
@@ -54,6 +59,37 @@ export class AppComponent implements OnInit{
       .subscribe(
         (servers: any[]) => {
           this.servers = servers;
+        },
+        (error) => console.log(error)
+      );
+  }
+  onTest() {
+    const data = this.dishesService
+      .getDishes()
+      .subscribe(
+        (dishes) => console.log(dishes),
+        (error) => console.log(error)
+      );
+  }
+  onTestSend(data) {
+    console.log(data);
+    const sendData = {
+      title: data,
+      description: 'Tratatatat',
+      imagePath: 'url'
+    };
+    this.dishesService.postDishes(sendData)
+      .subscribe(
+        (response) => {
+          this.responseSuccess = this.dishesService.testFunc(response).valid;
+          this.responseResults = this.dishesService.testFunc(response).data;
+          console.log(this.responseSuccess, this.responseResults);
+          this.sendData = true;
+          if(this.responseSuccess) {
+            setTimeout(() => {
+              this.sendData = false;
+            }, 3000);
+          }
         },
         (error) => console.log(error)
       );

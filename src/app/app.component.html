@@ -10,6 +10,24 @@
       <button class="btn btn-primary"
         (click)="onGet()">Get Servers</button>
       <hr>
+      <br><br>
+      <div
+        *ngIf="sendData">
+        <ul
+        *ngIf="!responseSuccess; else success">
+        <li
+          *ngFor="let item of responseResults">
+          {{item.text}}
+        </li>
+      </ul>
+      <ng-template #success>
+        <div>good!</div>
+      </ng-template>
+      </div>
+      <button class="btn btn-primary"
+        (click)="onTest()">test</button>
+      <button class="btn btn-primary"
+        (click)="onTestSend(serverName.value)">test send</button>
       <ul class="list-group" *ngFor="let server of servers">
         <li class="list-group-item">{{ server.name }} (ID: {{ server.id }})</li>
       </ul>

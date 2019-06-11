@@ -1,3 +1,4 @@
+import { DishesService } from './dishes.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +16,7 @@ import { ServerService } from './server.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ServerService],
+  providers: [ServerService, DishesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
