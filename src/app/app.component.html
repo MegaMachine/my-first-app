@@ -1,16 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <h1> {{ appName | async}} </h1>
-      <input type="text" #serverName>
-      <button class="btn btn-primary" (click)="onAddServer(serverName.value)">Add Server</button>
-      <br><br>
-      <button class="btn btn-primary"
-        (click)="onSave()">Save Servers</button>
-      <button class="btn btn-primary"
-        (click)="onGet()">Get Servers</button>
+      <form [formGroup]="recipesForm" (ngSubmit)="onSubmit()" >
+        <input type="text" [formControlName]="'name'">
+        <input type="text" [formControlName]="'description'">
+        <input type="text" [formControlName]="'imagePath'">
+        <button type="submit">Add Server</button>
+      </form>
       <hr>
-      <br><br>
       <div
         *ngIf="sendData">
         <ul
@@ -24,12 +21,18 @@
         <div>good!</div>
       </ng-template>
       </div>
-      <button class="btn btn-primary"
-        (click)="onTest()">test</button>
-      <button class="btn btn-primary"
-        (click)="onTestSend(serverName.value)">test send</button>
-      <ul class="list-group" *ngFor="let server of servers">
-        <li class="list-group-item">{{ server.name }} (ID: {{ server.id }})</li>
+      <ul class="list-group" *ngFor="let recipe of recipes">
+        <li class="list-group-item">
+          <div class="item-text">
+            <h3>{{ recipe.name }}</h3>
+            <p>{{ recipe.description }}</p>
+          </div>
+          <div class="item-img">
+            <img [src]="recipe.imagePath" [alt]="recipe.title">
+          </div>
+          <button class="btn btn-danger"
+            (click)="onDelete(recipe.id)">X</button>
+        </li>
       </ul>
     </div>
   </div>

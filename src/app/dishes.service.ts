@@ -30,6 +30,12 @@ export class DishesService {
   postDishes(dishes) {
     return this.http.post('http://localhost:5000/recipes/add', dishes);
   }
+  deleteDishes(id) {
+    const data = {
+      id: id
+    };
+    return this.http.delete('http://localhost:5000/recipes/' + id);
+  }
 
 testFunc(responce) {
   if (responce.success) {
