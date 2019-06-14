@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeService } from './main/recipes/recipe.service';
@@ -51,7 +52,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
