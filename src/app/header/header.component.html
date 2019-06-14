@@ -14,8 +14,16 @@
             <!-- <li><a >Save Data</a></li>
             <li><a >Fetch Data</a></li> -->
           </ul>
-          <a class="btn btn-primary" routerLink="/signup">Sign Up</a>
+          <ng-template
+            [ngIf]="!authService.isAuthenticated()">
+              <a class="btn btn-primary" routerLink="/signup">Register</a>
+              <a class="btn btn-primary" routerLink="/signin">Login</a>
+          </ng-template>
+          <a class="btn btn-primary"
+            *ngIf="authService.isAuthenticated()"
+            (click)="onLogout()">Logout</a>
           <div class="dropdown"
+            *ngIf="authService.isAuthenticated()"
             appDropdown>
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown button

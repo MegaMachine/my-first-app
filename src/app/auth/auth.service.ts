@@ -1,11 +1,49 @@
 import * as firebase from 'firebase';
 
 export class AuthService {
-  signupUser(email: string, password: string)  {
+  token: string;
+  signUpUser(email: string, password: string)  {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(result => console.log(result))
       .catch(error => console.log(error));
+  }
+
+  signInUser(email: string, password: string) {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(response => {
+        firebase.auth().currentUser.getIdToken(true)
+          .then((token: string) => {
+            this.token = token;
+          })
+          .catch(error => console.log(error));
+      })
+      .catch(error => console.log(error));
+  }
+
+  logout() {
+    firebase
+      .auth()
+      .signOut();
+    this.token = null;
+  }
+
+  getToken() {
+    firebase
+      .auth()
+      .currentUser
+      .getIdToken(true)
+      .then((token: string) => {
+        this.token = token;
+      })
+      .catch(error => console.log(error));
+    return this.token;
+  }
+
+  isAuthenticated() {
+    return this.token != null;
   }
 }
