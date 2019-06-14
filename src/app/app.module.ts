@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeService } from './main/recipes/recipe.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -50,7 +51,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

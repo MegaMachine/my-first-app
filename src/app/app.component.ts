@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +10,10 @@ export class AppComponent implements OnInit{
   onNavigate( feature: string ) {
     this.loadedFeature = feature;
   }
-  ngOnInit(){
-    console.log(this.loadedFeature);
+  ngOnInit() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyDjBvW5OiFPxoNNKhNNV93O2BkEcrFFwwA',
+      authDomain: 'learning-http-request.firebaseapp.com'
+    });
   }
 }
