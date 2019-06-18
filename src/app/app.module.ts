@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,31 +16,25 @@ import { DropdownModule } from 'primeng/dropdown';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
-import { ShoppingListComponent } from './main/shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './main/shopping-list/shopping-edit/shopping-edit.component';
 import { DataStorageService } from './shared/data-storage.service';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
+import { ShoppingListModule } from './main/shopping-list/shopping-list.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    SignupComponent,
-    SigninComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
-    DropdownModule,
-    FormsModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     RecipesModule,
-    SharedModule
+    SharedModule,
+    AuthModule,
+    ShoppingListModule
+    // DropdownModule,
+    // BrowserAnimationsModule,
   ],
   providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
