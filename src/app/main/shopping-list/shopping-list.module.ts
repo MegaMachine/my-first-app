@@ -13,11 +13,6 @@ import { ShoppingListComponent } from './shopping-list.component';
   imports: [
     CommonModule,
     FormsModule
-  ],
-  exports: [
-    // FormsModule
   ]
 })
-export class ShoppingListModule {
-
-}
+export class ShoppingListModule {}
