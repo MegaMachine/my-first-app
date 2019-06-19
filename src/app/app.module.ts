@@ -16,6 +16,7 @@ import { ShoppingListModule } from './main/shopping-list/shopping-list.module';
     AppComponent
   ],
   imports: [
+    //Angular modules
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

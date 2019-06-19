@@ -15,15 +15,15 @@
             <li><a >Fetch Data</a></li> -->
           </ul>
           <ng-template
-            [ngIf]="!authService.isAuthenticated()">
+            [ngIf]="!isAuthenticated()">
               <a class="btn btn-primary" routerLink="/signup">Register</a>
               <a class="btn btn-primary" routerLink="/signin">Login</a>
           </ng-template>
           <a class="btn btn-primary"
-            *ngIf="authService.isAuthenticated()"
+            *ngIf="isAuthenticated()"
             (click)="onLogout()">Logout</a>
           <div class="dropdown"
-            *ngIf="authService.isAuthenticated()"
+            *ngIf="isAuthenticated()"
             appDropdown>
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown button
