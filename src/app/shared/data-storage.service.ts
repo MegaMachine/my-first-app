@@ -8,23 +8,22 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class DataStorageService {
   constructor(
-    private http: HttpClient,
+    private httpClient: HttpClient,
     private recipeService: RecipeService,
     private authService: AuthService
   ) {}
 
   storeRecipes() {
     const token = this.authService.getToken();
-    return this.http.put('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
+    return this.httpClient.put('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
   }
   getRecipes() {
     const token = this.authService.getToken();
-    return this.http.get('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token)
+    return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token)
       .pipe(
         map(
-          (response: any) => {
-            const recipes: Recipe[] = response;
-            for (let recipe of recipes) {
+          (recipes) => {
+            for (const recipe of recipes) {
               if (!recipe['ingredients']) {
                 recipe['ingredients'] = [];
               }
