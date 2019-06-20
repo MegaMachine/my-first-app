@@ -19,16 +19,21 @@ export class DataStorageService {
   }
   getRecipes() {
     const token = this.authService.getToken();
-    return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token)
+    // return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token)
+    return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token, {
+      observe: 'body', // body, response
+      responseType: 'json', //blob, text, json
+    })
       .pipe(
         map(
           (recipes) => {
+            console.log(recipes);
             for (const recipe of recipes) {
               if (!recipe['ingredients']) {
                 recipe['ingredients'] = [];
               }
             }
-            return recipes;
+            return [];
           }
         )
       )
