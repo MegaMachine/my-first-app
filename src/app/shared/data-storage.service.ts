@@ -1,6 +1,6 @@
 import { AuthService } from './../auth/auth.service';
 import { RecipeService } from './../main/recipes/recipe.service';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recipe } from '../main/recipes/recipe.model';
 import { map } from 'rxjs/operators';
@@ -15,17 +15,27 @@ export class DataStorageService {
 
   storeRecipes() {
     const token = this.authService.getToken();
-    // const headers = new HttpHeaders().set('Authorization', 'dearer');
     const params = new HttpParams().set('auth', token)
-    return this.httpClient.put(
-      'https://learning-http-request.firebaseio.com/recipes.json' + token,
+    const req = new HttpRequest(
+      'PUT',
+      'https://learning-http-request.firebaseio.com/recipes.json',
       this.recipeService.getRecipes(),
       {
-        observe: 'body', //events, body
+        reportProgress: true,
         params: params
-        // headers: headers
       }
     );
+    return this.httpClient.request(req);
+    // const headers = new HttpHeaders().set('Authorization', 'dearer');
+    // return this.httpClient.put(
+    //   'https://learning-http-request.firebaseio.com/recipes.json' + token,
+    //   this.recipeService.getRecipes(),
+    //   {
+    //     observe: 'body', //events, body
+    //     params: params
+    //     // headers: headers
+    //   }
+    // );
   }
   getRecipes() {
     const token = this.authService.getToken();
