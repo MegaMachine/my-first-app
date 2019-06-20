@@ -1,6 +1,8 @@
 import { AuthService } from '../../auth/auth.service';
 import { DataStorageService } from '../../shared/data-storage.service';
 import { Component } from '@angular/core';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +12,14 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   constructor(
     private dataStorageService: DataStorageService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
   onSaveData() {
     this.dataStorageService.storeRecipes()
       .subscribe(
-        (response: Response) => {
+        (response: HttpEvent<Object>) => {
+          // console.log(response.type === HttpEventType.Sent);
           console.log(response);
         },
         (error) => {
@@ -25,6 +29,7 @@ export class HeaderComponent {
   }
   onFetchData() {
     this.dataStorageService.getRecipes();
+    this.router.navigate(['/recipes']);
   }
   onLogout() {
     this.authService.logout();

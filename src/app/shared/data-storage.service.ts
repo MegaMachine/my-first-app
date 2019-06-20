@@ -1,6 +1,6 @@
 import { AuthService } from './../auth/auth.service';
 import { RecipeService } from './../main/recipes/recipe.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recipe } from '../main/recipes/recipe.model';
 import { map } from 'rxjs/operators';
@@ -15,7 +15,17 @@ export class DataStorageService {
 
   storeRecipes() {
     const token = this.authService.getToken();
-    return this.httpClient.put('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
+    // const headers = new HttpHeaders().set('Authorization', 'dearer');
+    const params = new HttpParams().set('auth', token)
+    return this.httpClient.put(
+      'https://learning-http-request.firebaseio.com/recipes.json' + token,
+      this.recipeService.getRecipes(),
+      {
+        observe: 'body', //events, body
+        params: params
+        // headers: headers
+      }
+    );
   }
   getRecipes() {
     const token = this.authService.getToken();
@@ -27,18 +37,21 @@ export class DataStorageService {
       .pipe(
         map(
           (recipes) => {
-            console.log(recipes);
+            // console.log(response);
+            // const recipes: Recipe[] = response;
             for (const recipe of recipes) {
               if (!recipe['ingredients']) {
                 recipe['ingredients'] = [];
               }
             }
-            return [];
+            console.log(recipes);
+            return recipes;
           }
         )
       )
       .subscribe(
         (response: any) => {
+          console.log(response)
           const recipes: Recipe[] = response;
           this.recipeService.setRecipes(recipes);
         },

@@ -8,6 +8,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'recipes', loadChildren: './main/recipes/recipes.module#RecipesModule'}, //lazy  load module
   { path: 'shopping-list', component: ShoppingListComponent },
+  // { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
