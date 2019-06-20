@@ -14,15 +14,15 @@ export class DataStorageService {
   ) {}
 
   storeRecipes() {
-    const token = this.authService.getToken();
-    const params = new HttpParams().set('auth', token)
+    // const token = this.authService.getToken();
+    // const params = new HttpParams().set('auth', token);
     const req = new HttpRequest(
       'PUT',
       'https://learning-http-request.firebaseio.com/recipes.json',
       this.recipeService.getRecipes(),
       {
         reportProgress: true,
-        params: params
+        // params: params
       }
     );
     return this.httpClient.request(req);
@@ -38,9 +38,9 @@ export class DataStorageService {
     // );
   }
   getRecipes() {
-    const token = this.authService.getToken();
+    // const token = this.authService.getToken();
     // return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token)
-    return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token, {
+    return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json', {
       observe: 'body', // body, response
       responseType: 'json', //blob, text, json
     })

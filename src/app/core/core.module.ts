@@ -1,3 +1,4 @@
+import { AuthInterceptor } from './../shared/auth.interceptor';
 import { NgModule } from '@angular/core';
 
 import { AuthService } from './../auth/auth.service';
@@ -8,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipeService } from '../main/recipes/recipe.service';
 import { ShoppingListService } from '../main/shopping-list/shopping-list.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,12 @@ import { ShoppingListService } from '../main/shopping-list/shopping-list.service
     ShoppingListService,
     RecipeService,
     DataStorageService,
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 })
 export class CoreModule {}
