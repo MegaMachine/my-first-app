@@ -54,14 +54,12 @@ export class DataStorageService {
                 recipe['ingredients'] = [];
               }
             }
-            console.log(recipes);
             return recipes;
           }
         )
       )
       .subscribe(
         (response: any) => {
-          console.log(response)
           const recipes: Recipe[] = response;
           this.recipeService.setRecipes(recipes);
         },
