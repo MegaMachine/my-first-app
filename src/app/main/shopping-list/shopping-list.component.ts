@@ -8,9 +8,8 @@ import { Store } from '@ngrx/store';
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.scss']
 })
-export class ShoppingListComponent implements OnInit,OnDestroy {
+export class ShoppingListComponent implements OnInit {
   shoppingListState: Observable<{ingredients: Ingredient[]}>;
-  private subscription: Subscription;
 
   constructor(
     private slService: ShoppingListService,
@@ -19,17 +18,11 @@ export class ShoppingListComponent implements OnInit,OnDestroy {
 
   ngOnInit() {
     this.shoppingListState = this.store.select('shoppingList');
-    // this.subscription = this.slService.ingredientChanged.subscribe(
-    //   (ingredients: Ingredient[]) => this.ingredients = ingredients
-    // );
   }
   onIngredientAdded(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
   }
   onEditItem(index: number) {
     this.slService.startedEditing.next(index);
-  }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }
