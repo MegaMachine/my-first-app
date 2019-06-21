@@ -9,7 +9,6 @@ import { SharedModule } from './../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipeService } from '../main/recipes/recipe.service';
-import { ShoppingListService } from '../main/shopping-list/shopping-list.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HeaderComponent,
   ],
   providers: [
-    ShoppingListService,
     RecipeService,
     DataStorageService,
     AuthService,
