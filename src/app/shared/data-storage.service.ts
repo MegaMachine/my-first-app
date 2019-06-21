@@ -14,32 +14,17 @@ export class DataStorageService {
   ) {}
 
   storeRecipes() {
-    // const token = this.authService.getToken();
-    // const params = new HttpParams().set('auth', token);
     const req = new HttpRequest(
       'PUT',
       'https://learning-http-request.firebaseio.com/recipes.json',
       this.recipeService.getRecipes(),
       {
         reportProgress: true,
-        // params: params
       }
     );
     return this.httpClient.request(req);
-    // const headers = new HttpHeaders().set('Authorization', 'dearer');
-    // return this.httpClient.put(
-    //   'https://learning-http-request.firebaseio.com/recipes.json' + token,
-    //   this.recipeService.getRecipes(),
-    //   {
-    //     observe: 'body', //events, body
-    //     params: params
-    //     // headers: headers
-    //   }
-    // );
   }
   getRecipes() {
-    // const token = this.authService.getToken();
-    // return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json?auth=' + token)
     return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json', {
       observe: 'body', // body, response
       responseType: 'json', //blob, text, json
@@ -47,8 +32,6 @@ export class DataStorageService {
       .pipe(
         map(
           (recipes) => {
-            // console.log(response);
-            // const recipes: Recipe[] = response;
             for (const recipe of recipes) {
               if (!recipe['ingredients']) {
                 recipe['ingredients'] = [];
