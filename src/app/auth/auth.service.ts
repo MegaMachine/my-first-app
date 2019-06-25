@@ -19,10 +19,10 @@ export class AuthService {
       .then(user => {
         this.store.dispatch(new AuthActions.Signup());
         firebase.auth().currentUser.getIdToken(true)
-        .then((token: string) => {
-          this.store.dispatch(new AuthActions.SetToken(token));
-        })
-        .catch(error => console.log(error));
+          .then((token: string) => {
+            this.store.dispatch(new AuthActions.SetToken(token));
+          })
+          .catch(error => console.log(error));
       })
       .catch(error => console.log(error));
   }
