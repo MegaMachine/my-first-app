@@ -1,15 +1,15 @@
-<ng-template [ngIf]="recipe != undefined">
+<ng-template [ngIf]="(recipeState | async).recipes[id] != undefined">
   <div class="row">
       <div class="col-xs-12">
         <img
-          [src]="recipe.imagePath"
-          alt="{{ recipe.name }}"
+          [src]="(recipeState | async).recipes[id].imagePath"
+          alt="{{ (recipeState | async).recipes[id].name }}"
           style="width:200px">
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h2>{{ recipe.name }}</h2>
+        <h2>{{ (recipeState | async).recipes[id].name }}</h2>
       </div>
     </div>
     <div class="row">
@@ -35,14 +35,14 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        {{ recipe.description }}
+        {{ (recipeState | async).recipes[id].description }}
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
         <ul>
           <li
-            *ngFor="let ingredient of recipe.ingredients">
+            *ngFor="let ingredient of (recipeState | async).recipes[id].ingredients">
             <a >{{ ingredient.name }} ({{ ingredient.amount}})</a>
           </li>
         </ul>
