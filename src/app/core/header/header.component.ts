@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { DataStorageService } from '../../shared/data-storage.service';
+import * as firebase from 'firebase';
 import * as fromApp from '../../store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
 import * as AuthActions from '../../auth/store/auth.actions';
@@ -41,9 +42,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/recipes']);
   }
   onLogout() {
-    // firebase
-    //   .auth()
-    //   .signOut();
+    firebase
+      .auth()
+      .signOut();
     this.store.dispatch(new AuthActions.Logout());
   }
 }
