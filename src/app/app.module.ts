@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { MainModule } from './main/main.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
@@ -24,7 +24,7 @@ import { AuthEffects } from './auth/store/auth.effects';
     HttpClientModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),
-
+    StoreRouterConnectingModule,
     //Custom modules
     SharedModule,
     AuthModule,
