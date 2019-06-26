@@ -1,4 +1,3 @@
-import { AuthService } from './../auth/auth.service';
 import { RecipeService } from './../main/recipes/recipe.service';
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -10,7 +9,6 @@ export class DataStorageService {
   constructor(
     private httpClient: HttpClient,
     private recipeService: RecipeService,
-    private authService: AuthService
   ) {}
 
   storeRecipes() {
