@@ -27,16 +27,17 @@ export class HeaderComponent implements OnInit {
     this.authState = this.store.select('auth');
   }
   onSaveData() {
-    this.dataStorageService.storeRecipes()
-      .subscribe(
-        (response: HttpEvent<Object>) => {
-          // console.log(response.type === HttpEventType.Sent);
-          console.log(response);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    // this.dataStorageService.storeRecipes()
+    //   .subscribe(
+    //     (response: HttpEvent<Object>) => {
+    //       // console.log(response.type === HttpEventType.Sent);
+    //       console.log(response);
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //     }
+    //   );
+    this.store.dispatch(new RecipeActions.StoreRecipes());
   }
   onFetchData() {
     this.store.dispatch(new RecipeActions.FetchRecipes());
