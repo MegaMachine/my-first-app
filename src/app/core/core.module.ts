@@ -2,12 +2,10 @@ import { LoggingInterceptor } from './../shared/logging.interceptor';
 import { AuthInterceptor } from './../shared/auth.interceptor';
 import { NgModule } from '@angular/core';
 
-import { DataStorageService } from './../shared/data-storage.service';
 import { AppRoutingModule } from './../app-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipeService } from '../main/recipes/recipe.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
@@ -24,8 +22,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HeaderComponent,
   ],
   providers: [
-    RecipeService,
-    DataStorageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

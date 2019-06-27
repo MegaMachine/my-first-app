@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
 import { Recipe } from './../recipe.model';
 import { HttpClient, HttpRequest } from '@angular/common/http';
-import { tap, switchMap, map, take, withLatestFrom } from 'rxjs/operators';
+import { switchMap, map, withLatestFrom } from 'rxjs/operators';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 

@@ -2,7 +2,6 @@ import * as RecipeActions from './../store/recipe.actions';
 import { take } from 'rxjs/operators';
 import * as ShoppingListActions from './../../shopping-list/store/shopping-list.actions';
 import { Store } from '@ngrx/store';
-import { RecipeService } from './../recipe.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -17,7 +16,6 @@ export class RecipeDetailComponent implements OnInit {
   recipeState: Observable<fromRecipe.State>;
   id: number;
   constructor(
-    private recipeService: RecipeService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private store: Store<fromRecipe.FeatureState>

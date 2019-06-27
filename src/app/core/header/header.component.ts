@@ -1,10 +1,8 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { DataStorageService } from '../../shared/data-storage.service';
 import * as firebase from 'firebase';
 import * as fromApp from '../../store/app.reducers';
 import * as fromAuth from '../../auth/store/auth.reducers';
@@ -19,7 +17,6 @@ import * as RecipeActions from '../../main/recipes/store/recipe.actions';
 export class HeaderComponent implements OnInit {
   authState: Observable<fromAuth.State>;
   constructor(
-    private dataStorageService: DataStorageService,
     private router: Router,
     private store: Store<fromApp.AppState>
   ) {}
@@ -27,16 +24,6 @@ export class HeaderComponent implements OnInit {
     this.authState = this.store.select('auth');
   }
   onSaveData() {
-    // this.dataStorageService.storeRecipes()
-    //   .subscribe(
-    //     (response: HttpEvent<Object>) => {
-    //       // console.log(response.type === HttpEventType.Sent);
-    //       console.log(response);
-    //     },
-    //     (error) => {
-    //       console.log(error);
-    //     }
-    //   );
     this.store.dispatch(new RecipeActions.StoreRecipes());
   }
   onFetchData() {
