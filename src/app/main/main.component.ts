@@ -9,6 +9,5 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MainComponent implements OnInit{
   @Input() loadedFeature: string;
   ngOnInit() {
-    console.log(this.loadedFeature);
   }
 }
