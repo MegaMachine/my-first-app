@@ -23,30 +23,6 @@ export class DataStorageService {
     return this.httpClient.request(req);
   }
   getRecipes() {
-    return this.httpClient.get<Recipe[]>('https://learning-http-request.firebaseio.com/recipes.json', {
-      observe: 'body', // body, response
-      responseType: 'json', //blob, text, json
-    })
-      .pipe(
-        map(
-          (recipes) => {
-            for (const recipe of recipes) {
-              if (!recipe['ingredients']) {
-                recipe['ingredients'] = [];
-              }
-            }
-            return recipes;
-          }
-        )
-      )
-      .subscribe(
-        (response: any) => {
-          const recipes: Recipe[] = response;
-          this.recipeService.setRecipes(recipes);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+
   }
 }

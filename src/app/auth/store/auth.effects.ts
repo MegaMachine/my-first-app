@@ -41,6 +41,7 @@ export class AuthEffects {
       }),
       switchMap((authData: {username: string, password: string}) => {
         return from(firebase.auth().signInWithEmailAndPassword(authData.username, authData.password)
+          // .then((response) => console.log(response))
           .catch(error => console.log(error.message)));
       }),
       switchMap(() => {
